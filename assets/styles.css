@@ -3,24 +3,18 @@
 }
 
 body {
-    overflow: hidden;
     color:white;
     font: 60px Impact;
 }
 
 .app {
-Position:absolute;
-Left:0;
-Right:0;
-Top:0;
-Bottom:0;
+    Overflow: hidden;
     height: 100vh;
     background: url('battleback1.png') ;
     background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
 }
 
 .btn {
