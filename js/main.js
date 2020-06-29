@@ -31,6 +31,7 @@ startGameEngine = () => {
   };
 // Click handlers to make work on mobile phones
    const clickHandler = (event) => {
+     event.preventDefault()
      if (gameEngine.player.y > event.y) {
          gameEngine.player.moveUp();
      } else if (gameEngine.player.y < event.y) {
