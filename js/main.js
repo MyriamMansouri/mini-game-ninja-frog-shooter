@@ -42,7 +42,7 @@ startGameEngine = () => {
 
   // We add an event listener to document. document the ancestor of all DOM nodes in the DOM.
   document.addEventListener("keydown", keydownHandler);
-  document.addEventListener("click", clickHandler);
+  document.addEventListener("ontouchstart", clickHandler);
   // We call the gameLoop method to start the game
   gameEngine.gameLoop();
 };
