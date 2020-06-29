@@ -5,10 +5,9 @@
 // please see the Engine.js file.
 
 // The purpose of this function is to determine in which slot to place our next enemy.
-// The possibilities are 0, 1, 2, 3 or 4.
-const nextEnemySpot = (enemies) => {
-  // enemySpots will refer to the number of spots available (can you calculate it?)
-  const enemySpots = GAME_WIDTH / ENEMY_WIDTH;
+const nextSpot = (targetArr) => {
+  // spots will refer to the number of spots available (can you calculate it?)
+  const spots = Math.floor(GAME_HEIGHT / ENEMY_HEIGHT);
 
   // To find out where to place an enemy, we first need to find out which are the spots available.
   // We don't want to place two enemies in the same lane. To accomplish this, we first create an
@@ -16,9 +15,13 @@ const nextEnemySpot = (enemies) => {
   // We then use forEach to iterate through all the enemies.
   // If you look at the constructor of the Enemy class, you can see that every instance will have a spot property.
   // We can use this property to modify the spotsTaken array.
-  const spotsTaken = [false, false, false, false, false];
-  enemies.forEach((enemy) => {
-    spotsTaken[enemy.spot] = true;
+  const spotsTaken = [];
+  for (i = 0; i < spots; i++) {
+    spotsTaken.push(false);
+  }
+
+  targetArr.forEach((target) => {
+    spotsTaken[target.spot] = true;
   });
 
   // We are now in a position to find out position. We declare a variable candidate that is initially undefined.
@@ -27,9 +30,8 @@ const nextEnemySpot = (enemies) => {
   let candidate = undefined;
   while (candidate === undefined || spotsTaken[candidate]) {
     // candidate is assigned a random number between 0 and enemySpots (not including enemySpots). (what number is enemySpots?)
-    candidate = Math.floor(Math.random() * enemySpots);
+    candidate = Math.floor(Math.random() * spots);
   }
-
   // When the while loop is finished, we are assured that we have a number that corresponds to a free spot, so we return it.
   return candidate;
 };
@@ -39,28 +41,42 @@ const nextEnemySpot = (enemies) => {
 // The function takes one parameter
 // The parameter represents the DOM node to which we will add the background
 const addBackground = (root) => {
-  // We create a new img DOM node.
-  const bg = document.createElement('img');
+  //create div containing game + some music
 
-  // We set its src attribute and the height and width CSS attributes
-  bg.src = 'images/stars.png';
-  bg.style.height = `${GAME_HEIGHT}px`;
-  bg.style.width = `${GAME_WIDTH}px`;
+  // add music
+  const music = document.createElement("embed");
+  music.autostart = true;
+  music.loop = true;
+  music.src = "assets/music.wav";
+  music.height = 0;
+  music.width = 0;
+
+  const game = document.createElement("div");
+  game.style.height = `${GAME_HEIGHT}px`;
+  game.style.width = `${GAME_WIDTH}px`;
+  game.id = "game-section";
+  game.style.position = "relative";
+  game.style.overflow = "none";
+  game.style.display = "flex";
+  game.style.justifyContent = "center";
+  game.style.alignItems = "center";
+  game.style.flexDirection = "column";
 
   // We add it to the root DOM node
-  root.append(bg);
+  root.append(music);
+  root.append(game);
 
   // We don't want the enemies to go beyond the lower edge of the image
   // so we place a white div to hide the enemies after they reach the bottom.
   // To see what it does, you can comment out all the remaining lines in the function to see the effect.
-  const whiteBox = document.createElement('div');
+  // const whiteBox = document.createElement("div");
 
   // We put a high z-index so that the div is placed over all other DOM nodes
-  whiteBox.style.zIndex = 100;
-  whiteBox.style.position = 'absolute';
-  whiteBox.style.top = `${GAME_HEIGHT}px`;
-  whiteBox.style.height = `${ENEMY_HEIGHT}px`;
-  whiteBox.style.width = `${GAME_WIDTH}px`;
-  whiteBox.style.background = '#fff';
-  root.append(whiteBox);
+  // whiteBox.style.zIndex = 100;
+  // whiteBox.style.position = 'absolute';
+  // whiteBox.style.top = `${GAME_HEIGHT}px`;
+  // whiteBox.style.height = `${ENEMY_HEIGHT}px`;
+  // whiteBox.style.width = `${GAME_WIDTH}px`;
+  // whiteBox.style.background = '#fff';
+  // root.append(whiteBox);
 };
