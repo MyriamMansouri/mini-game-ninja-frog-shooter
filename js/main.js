@@ -31,6 +31,9 @@ startGameEngine = () => {
   };
 
    const clickHandler = (event) => {
+     if (gameEngine.player.y > event.y) {
+         gameEngine.player.moveUp();
+     }
       gameEngine.player.fireAmmo();
    }
 
