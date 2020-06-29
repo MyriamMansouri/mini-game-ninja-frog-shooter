@@ -9,6 +9,11 @@ body {
 }
 
 .app {
+Position:absolute;
+Left:0;
+Right:0;
+Top:0;
+Bottom:0;
     height: 100vh;
     background: url('battleback1.png') ;
     background-size: cover;
