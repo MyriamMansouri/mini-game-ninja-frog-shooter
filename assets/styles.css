@@ -57,3 +57,18 @@ body {
     64%  { transform: scale(1,1)      translateY(0); }
     100% { transform: scale(1,1)      translateY(0); }
 }
+
+
+@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+    /* force landscape on mobile */
+    html {
+      transform: rotate(-90deg);
+      transform-origin: left top;
+      width: 100vh;
+      height: 100vw;
+      overflow-x: hidden;
+      position: absolute;
+      top: 100%;
+      left: 0;
+    }
+  }
