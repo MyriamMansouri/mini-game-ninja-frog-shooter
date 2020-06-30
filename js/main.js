@@ -34,6 +34,7 @@ startGameEngine = () => {
   let onTouchInterval;
   let direction = 0;
   onTouch = (event) => {
+    // as player moves, she fires bullets
     // flag if user tapped screen to move player up or down
     // direction = 1, move player up. direction = 2 move player down. direction = 0 when user is not touching the screen
     if ((direction === 0)) {
