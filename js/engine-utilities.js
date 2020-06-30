@@ -36,7 +36,7 @@ const nextSpot = (targetArr) => {
   return candidate;
 };
 
-// addBackground contains all the logic to display the starry background of the game.
+// addBackground contains all the logic to display the background of the game and add a music to it.
 // It is a variable that refers to a function.
 // The function takes one parameter
 // The parameter represents the DOM node to which we will add the background
