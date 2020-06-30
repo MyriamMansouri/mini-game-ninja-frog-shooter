@@ -29,10 +29,20 @@ startGameEngine = () => {
       gameEngine.player.fireAmmo();
     }
   };
+// Click handlers to make work on mobile phones
+   const clickHandler = (event) => {
+     event.preventDefault()
+     if (gameEngine.player.y > event.y) {
+         gameEngine.player.moveUp();
+     } else if (gameEngine.player.y < event.y) {
+         gameEngine.player.moveDown()
+     }
+      gameEngine.player.fireAmmo();
+   }
 
   // We add an event listener to document. document the ancestor of all DOM nodes in the DOM.
   document.addEventListener("keydown", keydownHandler);
-
+  document.addEventListener("ontouchstart", clickHandler);
   // We call the gameLoop method to start the game
   gameEngine.gameLoop();
 };

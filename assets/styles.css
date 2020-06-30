@@ -3,12 +3,12 @@
 }
 
 body {
-    overflow: hidden;
     color:white;
     font: 60px Impact;
 }
 
 .app {
+    Overflow: hidden;
     height: 100vh;
     background: url('battleback1.png') ;
     background-size: cover;
