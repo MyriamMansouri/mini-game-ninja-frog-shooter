@@ -22,8 +22,8 @@ class Player {
     this.domElement.id = "player";
     this.domElement.style.background = "url(images/frog.png)";
     this.domElement.style.backgroundSize = "cover";
-    this.domElement.style.height = "64px";
-    this.domElement.style.width = "64px";
+    this.domElement.style.height = `${PLAYER_HEIGHT}px`;
+    this.domElement.style.width = `${PLAYER_WIDTH}px`;
     this.domElement.style.position = "absolute";
     this.domElement.style.left = `${this.x}px`;
     this.domElement.style.top = ` ${this.y}px`;

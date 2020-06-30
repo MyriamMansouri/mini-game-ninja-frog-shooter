@@ -32,17 +32,19 @@ startGameEngine = () => {
 
   // touch handlers to make work on mobile phones
   onTouch = (event) => {
-    if (gameEngine.player.y > event.y) {
+    console.log(gameEngine.player.y, event.touches[0].clientY )
+    if (gameEngine.player.y > event.touches[0].clientY) {
       gameEngine.player.moveUp();
-    } else if (gameEngine.player.y < event.y) {
+    } else {
       gameEngine.player.moveDown();
     }
     gameEngine.player.fireAmmo();
   };
 
   let onTouchInterval;
-  const touchHandler = () => {
-    onTouchInterval = setInterval(onTouch, 10);
+  const touchHandler = (event) => {
+    onTouchInterval = setInterval(onTouch(event), 10);
+    
   };
 
   const removeTouchHandler = () => {
@@ -51,8 +53,8 @@ startGameEngine = () => {
 
   // We add an event listener to document. document the ancestor of all DOM nodes in the DOM.
   document.addEventListener("keydown", keydownHandler);
-  document.addEventListener("ontouchstart", touchHandler);
-  document.addEventListener("ontouchend", removeTouchHandler);
+  document.addEventListener("touchstart", touchHandler);
+  document.addEventListener("touchend", removeTouchHandler);
   // We call the gameLoop method to start the game
   gameEngine.gameLoop();
 };
