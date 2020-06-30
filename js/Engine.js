@@ -10,6 +10,7 @@ class Engine {
     // We need the DOM element every time we create a new enemy so we
     // store a reference to it in a property of the instance.
     this.game = theRoot.querySelector("#game-section");
+    this.isGameOver = false;
     // We create our hamburger.
     // Please refer to Player.js for more information about what happens when you create a player
     this.player = new Player(this.game);
@@ -94,12 +95,17 @@ class Engine {
     	// game ends if player has no more lifes or player reaches 2000 points
 
     if (this.isPlayerDead() || this.score.number > 1999) {
+      this.isGameOver = true;
       const endScreen = new Screen(this.game);
       const message = this.isPlayerDead() ? "Game over" : "You win !";
-      console.log()
       endScreen.addText(message)
       endScreen.addBtn("Main menu");
       endScreen.reloadGameEventListener();
+
+      document.removeEventListener("keydown", keydownHandler);
+      document.removeEventListener("touchstart", touchHandler);
+      document.removeEventListener("touchend", removeTouchHandler);
+
       return;
     }
 

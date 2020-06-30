@@ -37,16 +37,16 @@ startGameEngine = () => {
     // as player moves, she fires bullets
     // flag if user tapped screen to move player up or down
     // direction = 1, move player up. direction = 2 move player down. direction = 0 when user is not touching the screen
-    if ((direction === 0)) {
+    if (direction === 0) {
       direction = gameEngine.player.y > event.touches[0].clientY ? 1 : 2;
     }
 
-    if (direction === 1 ) {
+    if (direction === 1) {
       gameEngine.player.moveUp();
     } else if (direction === 2) {
       gameEngine.player.moveDown();
     }
-    gameEngine.player.fireAmmo();
+    if (gameEngine.isGameOver === false) gameEngine.player.fireAmmo();
   };
 
   const touchHandler = (event) => {
@@ -56,14 +56,15 @@ startGameEngine = () => {
 
   const removeTouchHandler = () => {
     direction = 0;
-    console.log(direction)
     clearInterval(onTouchInterval);
   };
 
   // We add an event listener to document. document the ancestor of all DOM nodes in the DOM.
+  // as long as game is not over,
   document.addEventListener("keydown", keydownHandler);
   document.addEventListener("touchstart", touchHandler);
   document.addEventListener("touchend", removeTouchHandler);
+
   // We call the gameLoop method to start the game
   gameEngine.gameLoop();
 };
