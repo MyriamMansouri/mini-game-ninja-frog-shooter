@@ -91,12 +91,13 @@ class Engine {
 
     this.catchBonus();
 
-    // We check if the player is dead (player has no more lifes).
-    // When total lifes = 0  we alert the user
-    // and return from the method (Why is the return statement important?)
-    if (this.isPlayerDead()) {
+    	// game ends if player has no more lifes or player reaches 2000 points
+
+    if (this.isPlayerDead() || this.score.number > 1999) {
       const endScreen = new Screen(this.game);
-      endScreen.addText("Game over");
+      const message = this.isPlayerDead() ? "Game over" : "You win !";
+      console.log()
+      endScreen.addText(message)
       endScreen.addBtn("Main menu");
       endScreen.reloadGameEventListener();
       return;
@@ -107,6 +108,7 @@ class Engine {
   };
 
   updateRemainingLifes = () => {
+    // player loses life if overlaps enemy or enemy reaches the left of the screen
     for (let i = 0; i < this.enemies.length; i++) {
       if (
         this.enemies[i].spot === this.player.spot &&
