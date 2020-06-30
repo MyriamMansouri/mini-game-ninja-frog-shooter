@@ -73,7 +73,7 @@ const startScreen = new Screen(app);
 
 // change start message if on computer or mobile
 let startMessage;
-if (document.clientX < 480) {
+if (document.body.clientWidth < 480) {
   startMessage =
     "Get the fruits, do not let the enemies cross. Tap screen to move and shoot.";
 } else {

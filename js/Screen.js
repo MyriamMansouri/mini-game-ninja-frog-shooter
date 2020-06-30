@@ -15,6 +15,7 @@ class Screen {
     div.style.textAlign = "center";
     div.style.maxWidth = "800px";
     div.style.height = "300px";
+    div.style.margin = "10px"
     div.style.zIndex = 2000;
 
     root.appendChild(div);
