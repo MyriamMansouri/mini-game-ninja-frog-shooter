@@ -49,11 +49,13 @@ startGameEngine = () => {
   };
 
   const touchHandler = (event) => {
+    clearInterval(onTouchInterval);
     onTouchInterval = setInterval(() => onTouch(event), 100);
   };
 
   const removeTouchHandler = () => {
     direction = 0;
+    console.log(direction)
     clearInterval(onTouchInterval);
   };
 
