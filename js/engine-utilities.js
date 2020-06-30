@@ -52,6 +52,7 @@ const addBackground = (root) => {
   music.width = 0;
 
   const game = document.createElement("div");
+  
   game.style.height = `${GAME_HEIGHT}px`;
   game.style.width = `${GAME_WIDTH}px`;
   game.id = "game-section";

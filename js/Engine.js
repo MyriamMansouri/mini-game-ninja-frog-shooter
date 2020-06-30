@@ -101,11 +101,6 @@ class Engine {
       endScreen.addText(message)
       endScreen.addBtn("Main menu");
       endScreen.reloadGameEventListener();
-
-      document.removeEventListener("keydown", keydownHandler);
-      document.removeEventListener("touchstart", touchHandler);
-      document.removeEventListener("touchend", removeTouchHandler);
-
       return;
     }
 
@@ -172,7 +167,7 @@ class Engine {
         this.player.x < this.boni[i].x + BONUS_WIDTH
       ) {
         this.boni[i].wasCaught = true;
-        this.score.update(10);
+        this.score.update(50);
         break;
       }
     }

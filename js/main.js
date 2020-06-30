@@ -70,8 +70,16 @@ startGameEngine = () => {
 };
 
 const startScreen = new Screen(app);
-startScreen.addText(
-  "Get the fruits, do not let the enemies cross. Use the space bar to fire ammo and arrow keys to move across the screen."
-);
+
+// change start message if on computer or mobile
+let startMessage;
+if (document.clientX < 480) {
+  startMessage =
+    "Get the fruits, do not let the enemies cross. Tap screen to move and shoot.";
+} else {
+  startMessage =
+    "Get the fruits, do not let the enemies cross. Use the space bar to fire ammo and arrow keys to move across the screen.";
+}
+startScreen.addText(startMessage);
 startScreen.addBtn("Start Game");
 startScreen.startGameEventListener(startGameEngine);

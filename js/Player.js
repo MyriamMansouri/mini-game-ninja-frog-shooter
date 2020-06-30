@@ -7,7 +7,7 @@ class Player {
     // The x position starts off in the middle of the screen. Since this data is needed every time we move the player, we
     // store the data in a property of the instance. It represents the distance from the left margin of the browsing area to
     // the leftmost x position of the image.
-    this.x = PLAYER_WIDTH;
+    this.x = 10;
 
     // ammo fired by player
     this.ammos = [];
