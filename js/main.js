@@ -31,23 +31,29 @@ startGameEngine = () => {
   };
 
   // touch handlers to make work on mobile phones
+  let onTouchInterval;
+  let direction = 0;
   onTouch = (event) => {
-    console.log(gameEngine.player.y, event.touches[0].clientY )
-    if (gameEngine.player.y > event.touches[0].clientY) {
+    // flag if user tapped screen to move player up or down
+    // direction = 1, move player up. direction = 2 move player down. direction = 0 when user is not touching the screen
+    if ((direction === 0)) {
+      direction = gameEngine.player.y > event.touches[0].clientY ? 1 : 2;
+    }
+
+    if (direction === 1 ) {
       gameEngine.player.moveUp();
-    } else {
+    } else if (direction === 2) {
       gameEngine.player.moveDown();
     }
     gameEngine.player.fireAmmo();
   };
 
-  let onTouchInterval;
   const touchHandler = (event) => {
-    onTouchInterval = setInterval(onTouch(event), 10);
-    
+    onTouchInterval = setInterval(() => onTouch(event), 100);
   };
 
   const removeTouchHandler = () => {
+    direction = 0;
     clearInterval(onTouchInterval);
   };
 
