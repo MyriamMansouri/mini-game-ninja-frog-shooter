@@ -66,7 +66,7 @@ class Player {
     this.domElement.style.top = `${this.y}px`;
   }
 
-  // when player loses one life, bounce animation
+  // when player loses one life, bounce animationm
   bounce = () => {
     this.domElement.classList.add("bounce-me");
     setTimeout(() => {

@@ -92,13 +92,13 @@ class Engine {
 
     this.catchBonus();
 
-    	// game ends if player has no more lifes or player reaches 2000 points
+    // game ends if player has no more lifes or player reaches 2000 points
 
     if (this.isPlayerDead() || this.score.number > 999) {
       this.isGameOver = true;
       const endScreen = new Screen(this.game);
-      const message = this.isPlayerDead() ? "🐸 Game over 🐸" : "👑 You win 👑";
-      endScreen.addText(message)
+      const message = this.isPlayerDead() ? "Game over" : "You win";
+      endScreen.addText(message);
       endScreen.addBtn("Start screen");
       endScreen.reloadGameEventListener();
       return;
@@ -152,6 +152,9 @@ class Engine {
         ) {
           this.player.ammos[j].hasKilledEnemy = true;
           this.enemies[i].wasKilled = true;
+          // explosion sound
+          const audio = document.getElementById("boom-soundclip");
+          audio.play();
           this.score.update(10);
           break;
         }

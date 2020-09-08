@@ -51,6 +51,13 @@ const addBackground = (root) => {
   music.height = 0;
   music.width = 0;
 
+  // add explosion sound
+  const boom = document.createElement("audio");
+  boom.src = "assets/boom.wav";
+  boom.height = 0;
+  boom.width = 0;
+  boom.setAttribute("id", "boom-soundclip")
+
   const game = document.createElement("div");
   
   game.style.height = `${GAME_HEIGHT}px`;
@@ -65,6 +72,7 @@ const addBackground = (root) => {
 
   // We add it to the root DOM node
   root.append(music);
+  root.append(boom);
   root.append(game);
 
   console.log('ici',)

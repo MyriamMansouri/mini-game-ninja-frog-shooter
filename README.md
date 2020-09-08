@@ -1,6 +1,6 @@
 # Object Oriented Programming Game Project
 
-<a href = "https://nostalgic-galileo-b78a56.netlify.app/">https://nostalgic-galileo-b78a56.netlify.app/</a>
+<a href = "https://myrmansouri-ninja-frog.netlify.app/">https://myrmansouri-ninja-frog.netlify.app/</a>
 <p align="center"><img src="./images/screenshot.png"></p>
 
 # Introduction
