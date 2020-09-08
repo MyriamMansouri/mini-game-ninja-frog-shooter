@@ -3,6 +3,7 @@
 
 startGameEngine = () => {
   startScreen.removeScreen();
+  
   const gameEngine = new Engine(app);
   // keydownHandler is a variable that refers to a function. The function has one parameter
   // (does the parameter name matter?) which is called event. As we will see below, this function
@@ -73,13 +74,20 @@ const startScreen = new Screen(app);
 
 // change start message if on computer or mobile
 let startMessage;
-if (document.body.clientWidth < 480) {
+if (document.body.clientWidth < 640) {
   startMessage =
-    "Get the fruits, do not let the enemies cross. Tap screen to move and shoot.";
+    "Get the fruits, do not let the enemies cross.  <br> Tap screen to move and shoot.  <br> You win when you reach 1000 pts.";
 } else {
   startMessage =
-    "Get the fruits, do not let the enemies cross. Use the space bar to fire ammo and arrow keys to move across the screen.";
+    "Get the fruits, do not let the enemies cross.  <br> Space bar: fire ammo <br> Arrow keys: move across the screen. <br> You win when you reach 1000 pts.";
 }
+
+
+window.addEventListener("orientationchange", function () {
+  location.reload();
+});
+
+
 startScreen.addText(startMessage);
 startScreen.addBtn("Start Game");
 startScreen.startGameEventListener(startGameEngine);

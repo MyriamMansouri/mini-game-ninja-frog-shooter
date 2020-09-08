@@ -44,8 +44,8 @@ const addBackground = (root) => {
   //create div containing game + some music
 
   // add music
-  const music = document.createElement("embed");
-  music.autostart = true;
+  const music = document.createElement("audio");
+  music.autoplay = true;
   music.loop = true;
   music.src = "assets/music.wav";
   music.height = 0;
@@ -66,4 +66,6 @@ const addBackground = (root) => {
   // We add it to the root DOM node
   root.append(music);
   root.append(game);
+
+  console.log('ici',)
 };

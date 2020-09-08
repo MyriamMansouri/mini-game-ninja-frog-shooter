@@ -4,7 +4,7 @@
 
 body {
     color:white;
-    font: 3rem 'Francois One', sans-serif;
+    font: 2.5rem 'Francois One', sans-serif;
 }
 
 .app {
@@ -23,14 +23,15 @@ body {
     font-size: 20px;
     font-weight: bold;
     color: black;
-    border-radius: 10px;
+    border-radius: 50px;
     border:none;
     cursor: pointer;
+    transition: all 150ms ease-out
 }
 
 .btn:hover {
     color: white;
-    background-color: black;
+    background-color: #282635;
 } 
 
 .blink-me {
@@ -61,8 +62,8 @@ body {
 
 
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 640px) {
     body {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 }

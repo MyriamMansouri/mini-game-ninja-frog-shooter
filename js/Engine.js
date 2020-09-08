@@ -94,12 +94,12 @@ class Engine {
 
     	// game ends if player has no more lifes or player reaches 2000 points
 
-    if (this.isPlayerDead() || this.score.number > 1999) {
+    if (this.isPlayerDead() || this.score.number > 999) {
       this.isGameOver = true;
       const endScreen = new Screen(this.game);
-      const message = this.isPlayerDead() ? "Game over" : "You win !";
+      const message = this.isPlayerDead() ? "🐸 Game over 🐸" : "👑 You win 👑";
       endScreen.addText(message)
-      endScreen.addBtn("Main menu");
+      endScreen.addBtn("Start screen");
       endScreen.reloadGameEventListener();
       return;
     }
