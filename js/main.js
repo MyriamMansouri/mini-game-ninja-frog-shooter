@@ -6,7 +6,7 @@ startGameEngine = () => {
   
   const gameEngine = new Engine(app);
   // keydownHandler is a variable that refers to a function. The function has one parameter
-  // (does the parameter name matter?) which is called event. As we will see below, this function
+  // which is called event. As we will see below, this function
   // will be called every time the user presses a key. The argument of the function call will be an object.
   // The object will contain information about the key press, such as which key was pressed.
   const keydownHandler = (event) => {
@@ -31,7 +31,7 @@ startGameEngine = () => {
     }
   };
 
-  // touch handlers to make work on mobile phones
+  // touch handlers to make the game work on mobiles
   let onTouchInterval;
   let direction = 0;
   onTouch = (event) => {

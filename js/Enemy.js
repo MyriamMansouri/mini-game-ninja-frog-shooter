@@ -64,7 +64,7 @@ class Enemy {
     this.x = this.x - timeDiff * this.speed;
     this.domElement.style.left = `${this.x}px`;
 
-    // If the y position of the DOM element is greater than the GAME_HEIGHT then the enemy is at the bottom
+    // If the x position of the DOM element is negative then the enemy is at the left
     // of the screen and should be removed. We remove the DOM element from the root DOM element and we set
     // the destroyed property to indicate that the enemy should no longer be in play
     if (this.x < -80  || this.wasKilled ) {
@@ -80,6 +80,7 @@ class Enemy {
   }
 
   render = () => {
+    // image slicer, animates image assets
     let tID;
     let position = 0; //start position for the image slicer
     const interval = 100; 

@@ -4,17 +4,15 @@ class Player {
   // The constructor takes one parameter. This parameter refers to the parent DOM node.
   // We will be adding a DOM element to this parent DOM node.
   constructor(game) {
-    // The x position starts off in the middle of the screen. Since this data is needed every time we move the player, we
-    // store the data in a property of the instance. It represents the distance from the left margin of the browsing area to
-    // the leftmost x position of the image.
+    // The x position is the palyer's position on the horizontal
     this.x = 10;
 
     // ammo fired by player
     this.ammos = [];
-    // The y position never changes, so we don't need to store it in a property. It represents the y position of the top of the
-    // hamburger. The y position is the distance from the top margin of the browsing area.
-    
-    this.spot = Math.floor(GAME_HEIGHT / ENEMY_HEIGHT * 0.5); // commence au milieu de la hauteur de l'écran
+
+    // screen divided in lanes where enemy will appear. Spot refers to the lane the player is currently in
+    this.spot = Math.floor((GAME_HEIGHT / ENEMY_HEIGHT) * 0.5); // commence au milieu de la hauteur de l'écran
+    // The y position is the player's position on the vertical
     this.y = this.spot * ENEMY_HEIGHT;
     // We create a DOM node. We will be updating the DOM node every time we move the player, so we store a reference to the
     // DOM node in a property.

@@ -60,7 +60,6 @@ class Engine {
     });
     // We remove all the destroyed enemies from the array referred to by \`this.enemies\`.
     // We use filter to accomplish this.
-    // Remember: this.enemies only contains instances of the Enemy class.
     this.enemies = this.enemies.filter((enemy) => {
       return !enemy.destroyed;
     });
